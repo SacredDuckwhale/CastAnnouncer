@@ -7,6 +7,7 @@ do
 	-- Tooltip scanning every single spell while it's loading would be not be that fun. Scanning spells as we search them (and get valid results)
 	-- is a better solution since the results can be cached too.
 	local function spellFilter(self, spellID)
+		
 		if( filterCache[spellID] ~= nil ) then return filterCache[spellID] end
 		
 		-- Very very few auras are over 100 yard range, and those are generally boss spells should be able to get away with this

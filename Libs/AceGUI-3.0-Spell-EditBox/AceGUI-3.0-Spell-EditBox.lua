@@ -27,7 +27,7 @@ do
 			self.timeElapsed = self.timeElapsed - 0.10
 
 			-- Too many invalid spells found will assume we found all there is that we can
-			if( self.totalInvalid >= 5000 ) then
+			if( self.totalInvalid >= 10000 ) then
 				self:Hide()
 				return
 			end
@@ -100,7 +100,6 @@ do
 		else
 			self:Hide()
 		end
-		
 		self.lastQuery = query
 		self.usedButtons = usedButtons
 	end

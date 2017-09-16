@@ -1,9 +1,11 @@
 -- This is basically the main portion of the predictor, the other files handle 
+local addonName, SPELLDB = ...
 local AceGUI = LibStub("AceGUI-3.0")
 do
 	local Type = "Predictor_Base"
 	local Version = 1
 	local PREDICTOR_ROWS = 10
+	local activeButtons = 0
 	local SpellData = LibStub("AceGUI-3.0-SpellLoader")
 	local tooltip
 	local alreadyAdded = {}
@@ -43,18 +45,9 @@ do
 	local function Control_OnLeave(this)
 		this.obj:Fire("OnLeave")
 	end
-		
-	local function Predictor_Query(self)
-		for _, button in pairs(self.buttons) do button:Hide() end
-		for k in pairs(alreadyAdded) do alreadyAdded[k] = nil end
-		
-		local query = "^" .. string.lower(self.obj.editBox:GetText())
-		
-		local activeButtons = 0
-		for spellID, name in pairs(SpellData.spellList) do
+	local int function searchSP(self, spellID, name, query)
 			if( not alreadyAdded[name] and string.match(name, query) and ( not self.obj.spellFilter or self.obj.spellFilter(self.obj, spellID) ) ) then
 				activeButtons = activeButtons + 1
-
 				local button = self.buttons[activeButtons]
 				local spellName, spellRank, spellIcon = GetSpellInfo(spellID)
 				if( self.obj.useRanks and spellRank and spellRank ~= "" ) then
@@ -79,11 +72,25 @@ do
 					end
 				end
 				
-				-- Ran out of text to suggest :<
-				if( activeButtons >= PREDICTOR_ROWS ) then break end
+			end
+	end	
+	local function Predictor_Query(self)
+		activeButtons = 0
+		for _, button in pairs(self.buttons) do button:Hide() end
+		for k in pairs(alreadyAdded) do alreadyAdded[k] = nil end
+		
+		local query = string.lower(self.obj.editBox:GetText())
+		for _,S in pairs(SPELLDB) do
+			for _,v in pairs(S) do
+				for _,sp in pairs(v) do
+						for _,SPELLID in pairs(sp) do
+							if( activeButtons >= PREDICTOR_ROWS ) then break end
+							local spellName, spellRank, spellIcon = GetSpellInfo(SPELLID)
+							searchSP(self, SPELLID, string.lower(spellName), query)
+						end
+				end
 			end
 		end
-		
 		if( activeButtons > 0 ) then
 			self:SetHeight(15 + activeButtons * 17)
 			self:Show()
@@ -93,7 +100,7 @@ do
 		
 		self.activeButtons = activeButtons
 	end
-				
+
 	local function ShowButton(self)
 		if( self.lastText ~= "" ) then
 			self.predictFrame.selectedButton = nil
