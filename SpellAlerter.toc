@@ -1,11 +1,11 @@
-## Interface: 40200
+## Interface: 70200
 ## Author: Kollektiv
 ## Notes: Tracks spells
-## Version: v2.15 
-## Title: Spell Alerter
+## Version: v7.1.5 
+## Title: Spell Alerter |cff99ff33(Jax Update)|r
 ## OptionalDeps: Ace3, !ClassColors, LibSharedMedia-3.0, AceGUI-3.0-SharedMediaWidgets, AceGUI-3.0-Spell-EditBox
 ## SavedVariables: SpellAlerterDB
-## X-Curse-Packaged-Version: v2.15
+## X-Curse-Packaged-Version: v7.1.5
 ## X-Curse-Project-Name: SpellAlerter
 ## X-Curse-Project-ID: spell-alerter
 ## X-Curse-Repository-ID: wow/spell-alerter/mainline
@@ -26,6 +26,18 @@ libs\AceGUI-3.0-SharedMediaWidgets\widget.xml
 libs\AceGUI-3.0-Spell-EditBox\AceGUI-3.0-Spell-EditBox.xml
 Libs\LibDataBroker-1.1\LibDataBroker-1.1.lua
 Libs\LibDBIcon-1.0\LibDBIcon-1.0.lua
+Libs\Spells\spell_lib_mage.lua
+Libs\Spells\spell_lib_paladin.lua
+Libs\Spells\spell_lib_warrior.lua
+Libs\Spells\spell_lib_druid.lua
+Libs\Spells\spell_lib_dknight.lua
+Libs\Spells\spell_lib_hunter.lua
+Libs\Spells\spell_lib_priest.lua
+Libs\Spells\spell_lib_rogue.lua
+Libs\Spells\spell_lib_shaman.lua
+Libs\Spells\spell_lib_warlock.lua
+Libs\Spells\spell_lib_monk.lua
+Libs\Spells\spell_lib_dhunter.lua
 #@end-no-lib-strip@
 
 Locales.lua

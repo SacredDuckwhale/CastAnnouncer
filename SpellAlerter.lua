@@ -88,6 +88,7 @@ local Icons = setmetatable({}, {
 local Defaults = {
 	global = {
 		Enabled = true,
+		ArenaOnly = false,
 		Lock = true,
 		Minimap = {},
 	},
@@ -96,6 +97,7 @@ local Defaults = {
 		CategorySelect = "SpellCasts",
 		ShowIcon = true,
 		ShowCaster = true,
+		UnitIDCaster = false,
 		SpellNames = false,
 		ClassColored = true,
 		TargetGraphic = "arrow",
@@ -171,162 +173,167 @@ end
 function addon:AddDefaultSpells()
 	if not pfl.Ignores then
 		pfl.Ignores =  {
-		-- Heals
-			-------------------------------------
-				[26983] = true, -- Tranquility
+				[740] = true, -- Tranquility
+				[115203] = true, --Fort Brew
+				[198838] = true, --["Earthen Shield Totem"]
+				[104773] = true, --["Unending Resolve"]
+				[48792] = true, --["Icebound Fortitude"]
+				[192058] = true, --["Lightning Surge Totem"]
+				[204331] = true, --["Counterstrike Totem"]
+				[204332] = true, --["Windfury Totem"]
+				[5484] = true, --["Howl of Terror"]
+				[198144] = true, --["Ice Form"]
+				[12472] = true, --["Icy Veins"]
+				[204330] = true, --["Skyfury Totem"]
+				[98008] = true, --["Spirit Link Totem"]
+				[22812] = true, --["Barkskin"]
+				[23920] = true, --["Spell Reflection"]
+				[8122] = true, --["Psychic Scream"]
+				[45438] = true, --["Ice Block"]
+				[48707] = true, --["Anti-Magic Shell"]
+				[118038] = true, --["Die by the Sword"]
+				[187650] = true, --["Freezing Trap"]
+				[204336] = true, --["Grounding Totem"]
 
-		-- CC
-			-------------------------------------
-				-- Hunter
-				[14311] = true, -- Freezing Trap
-				[13809] = true, -- Frost Trap
-				[34600] = true, -- Snake Trap
-				-- Warlock
-				[17928] = true, -- Howl of Terror
-				-- Warrior
-				[23920] = true, -- Spell Reflection
-				
-		-- Destroyable
-			-------------------------------------
-				[16190] = true, -- Mana Tide Totem
-				[8177] = true,  -- Grounding Totem
-				[61657] = true, -- Fire Nova Totem
-				
-		-- Damage
-			-------------------------------------
-
-		-- Ressurects/Summons
-			-------------------------------------
-			-- Hunter
-				[982] = true,   -- Revive Pet
-			-- Warlock
-				[712] = true,   -- Summon Succubus
-				[30146] = true, -- Summon Felguard
-				[691] = true,   -- Summon Felhunter
-				[697] = true,   -- Summon Voidwalker
 		}
 		AddSpellInfo(pfl.Ignores,true)
 	end
 	
 	if not pfl.SpellCasts then
 		pfl.SpellCasts =  {
-			-- Heals
-			-------------------------------------
-				-- Priests
-				[25235] = {Color = "YELLOW"}, -- Flash Heal
-				[25213] = {Color = "YELLOW"}, -- Greater Heal
-				[32546] = {Color = "YELLOW"}, -- Binding Heal
-				-- Druid
-				[26979] = {Color = "YELLOW"}, -- Healing Touch
-				[26980] = {Color = "YELLOW"}, -- Regrowth
-				[26983] = {Color = "YELLOW"}, -- Tranquility
-				-- Shaman 
-				[25396] = {Color = "YELLOW"}, -- Healing Wave
-				[25420] = {Color = "YELLOW"}, -- Lesser Healing Wave
-				-- Paladin
-				[27137] = {Color = "YELLOW"}, -- Flash of Light
-				[27136] = {Color = "YELLOW"}, -- Holy Light
-			-- CC
-			-------------------------------------
-				-- Priest
-				[605] =   {Color = "PINK"},   -- Mind Control
-				-- Druid
-				[26989] = {Color = "PINK"},   -- Entangling Roots
-				[33786] = {Color = "PINK"},   -- Cyclone
-				[18658] = {Color = "PINK"}, 	-- Hibernate
-				-- Hunter
-				[14311] = {Color = "PINK"},   -- Freezing Trap
-				[13809] = {Color = "PINK"},   -- Frost Trap
-				[34600] = {Color = "PINK"},   -- Snake Trap
-				-- Mage
-				[12826] = {Color = "PINK"},   -- Polymorph
-				-- Warlock
-				[6215] =  {Color = "PINK"},   -- Fear
-				[17928] = {Color = "PINK"},   -- Howl of Terror
-				-- Warrior
-				[23920] = {Color = "PINK"},   -- Spell Reflection
-				-- Shaman
-				[51514] = {Color = "PINK"},   -- Hex
-				
-			-- Destroyable
-			-------------------------------------
-				[16190] = {Color = "GREEN"},  -- Mana Tide Totem
-				[8177] =  {Color = "GREEN"},  -- Grounding Totem
-				[61657] = {Color = "GREEN"},  -- Fire Nova Totem
-				
-			-- Damage
-			-------------------------------------
-				-- Priest
-				[8129]  = {Color = "RED"}, 	-- Mana Burn
-				[48123] = {Color = "RED"},    -- Smite
-				[48135] = {Color = "RED"},    -- Holy Fire
-				[48127] = {Color = "RED"},    -- Mind Blast
-				[48156] = {Color = "RED"},    -- Mind Flay
-				[48160] = {Color = "RED"},    -- Vampiric Touch
-				-- Mage
-				[38697] = {Color = "RED"},    -- Frostbolt
-				[38692] = {Color = "RED"},    -- Fireball
-				[33938] = {Color = "RED"},    -- Pyroblast
-				-- Shaman
-				[25449] = {Color = "RED"},    -- Lightning Bolt
-				[25442] = {Color = "RED"},    -- Chain Lightning
-				[60043] = {Color = "RED"},    -- Lava Burst
-				-- Warlock
-				[47810] = {Color = "RED"},    -- Immolate
-				[27209] = {Color = "RED"},    -- Shadow Bolt
-				[30545] = {Color = "RED"},    -- Soul Fire
-				[59164] = {Color = "RED"},    -- Haunt
-				[47843] = {Color = "RED"},    -- Unstable Affliction
-				[59172] = {Color = "RED"},    -- Chaos Bolt
-		-- Ressurects/Summons
-		-------------------------------------
-			-- Druid
-				[50763] = {Color = "GREY"},   -- Revive
-			-- Paladin
-				[48950] = {Color = "GREY"},   -- Redemption
-			-- Priest
-				[48171] = {Color = "GREY"},   -- Resurrect
-			-- Hunter
-				[982] =   {Color = "GREY"},   -- Revive Pet
-			-- Warlock
-				[712] =   {Color = "GREY"},   -- Summon Succubus
-				[30146] = {Color = "GREY"},   -- Summon Felguard
-				[691] =   {Color = "GREY"},   -- Summon Felhunter
-				[697] =   {Color = "GREY"},   -- Summon Voidwalker
-			-- Shaman
-				[49277] = {Color = "GREY"},   -- Ancestral Spirit
+				[199786] = {
+					Color = "WHITE",
+				},
+				[7328] = {
+					Color = "GREEN",
+				},
+				[118] = {
+					Color = "TURQUOISE",
+				},
+				[2006] = {
+					Color = "GREEN",
+				},
+				[50769] = {
+					Color = "GREEN",
+				},
+				[5782] = {
+					Color = "VIOLET",
+				},
+				[51514] = {
+					Color = "AQUA",
+				},
+				[2008] = {
+					Color = "GREEN",
+				},
+				[605] = {
+					Color = "TURQUOISE",
+				},
+				[119381] = {
+					Color = "TAN",
+				},
+				[116858] = {
+					Color = "VIOLET",
+				},
+				[339] = {
+					Color = "ORANGE",
+				},
+				[209753] = {
+					Color = "ORANGE",
+				},
 		}
 		AddSpellInfo(pfl.SpellCasts)
 	end
 	if not pfl.EnemyBuffs then
 		pfl.EnemyBuffs = {
-			-- Clearable
-			-------------------------------------
-				-- Druid
-				[29166] = {Color = "PEACH"},  -- Innervate
-				[17116] = {Color = "PEACH"},  -- Nature's Swiftness
-				-- Shaman
-				[32594] = {Color = "PEACH"},  -- Earth Shield
-				-- Paladin
-				[1044] =  {Color = "VIOLET"}, -- Hand of Freedom
-				[10278] = {Color = "VIOLET"}, -- Hand of Protection
-				[6940] =  {Color = "VIOLET"}, -- Hand of Sacrifice
-				-- Priest
-				[10060] = {Color = "PEACH"},  -- Power Infusion
-				-- Mage 
-				[12051] = {Color = "PEACH"},  -- Evocation
-				-- Warlock
-				[18708] = {Color = "PEACH"},  -- Fel Domination
-				-- Paladin
-				[53654] = {Color = "PEACH"},  -- Beacon of Light
+				[642] = {
+					Color = "PINK",
+				},
+				[10060] = {
+					Color = "WHITE",
+				},
+				[198111] = {
+					Color = "AQUA",
+				},
+				[48792] = {
+					Color = "RED",
+				},
+				[47585] = {
+					Color = "WHITE",
+				},
+				[198144] = {
+					Color = "AQUA",
+				},
+				[6940] = {
+					Color = "PINK",
+				},
+				[61336] = {
+					Color = "ORANGE",
+				},
+				[22812] = {
+					Color = "ORANGE",
+				},
+				[216890] = {
+					Color = "TAN",
+				},
+				[1022] = {
+					Color = "PINK",
+				},
+				[12472] = {
+					Color = "AQUA",
+				},
+				[1044] = {
+					Color = "PINK",
+				},
+				[102342] = {
+					Color = "ORANGE",
+				},
+				[118038] = {
+					Color = "TAN",
+				},
+				[48707] = {
+					Color = "RED",
+				},
+				[104773] = {
+					Color = "VIOLET",
+				},
 		}
 		AddSpellInfo(pfl.EnemyBuffs)
 	end
 	if not pfl.FriendlyDebuffs then
 		pfl.FriendlyDebuffs = {
-			-- Clearable
-			-------------------------------------
-				[3034] = {Color = "AQUA"},    -- Viper Sting
+				[47476] = {
+					Color = "RED",
+				},
+				[5246] = {
+					Color = "TAN",
+				},
+				[5484] = {
+					Color = "VIOLET",
+				},
+				[107570] = {
+					Color = "TAN",
+				},
+				[8122] = {
+					Color = "WHITE",
+				},
+				[853] = {
+					Color = "PINK",
+				},
+				[211522] = {
+					Color = "WHITE",
+				},
+				[221562] = {
+					Color = "RED",
+				},
+				[15487] = {
+					Color = "WHITE",
+				},
+				[31661] = {
+					Color = "AQUA",
+				},
+				[77606] = {
+					Color = "RED",
+				},
 		}
 		AddSpellInfo(pfl.FriendlyDebuffs)
 	end
@@ -581,6 +588,18 @@ do
 end
 
 function addon:FormatInfo(srcName,srcGUID,spellName,icon,sound,cat,color,forcedDst)
+	local units = {
+		"player",
+		"party1",
+		"party2",
+		"party3",
+		"party4",
+		"arena1",
+		"arena2",
+		"arena3",
+		"arena4",
+		"arena5",
+	}
 	local srcUnit,dstUnit,dstExists = self:FindTargetInfo(srcGUID)
 	local valid = cat == SPELLCASTS and not Ignores[spellName] and dstExists
 	local dstName
@@ -608,6 +627,14 @@ function addon:FormatInfo(srcName,srcGUID,spellName,icon,sound,cat,color,forcedD
 
 	if pfl.SpellNames then
 		srcName = srcName ~= "" and srcName .. " - "..spellName or spellName
+	end
+	
+	if pfl.UnitIDCaster then
+		for i = 1, #units do
+			if srcGUID == UnitGUID(units[i]) then
+				srcName = units[i]
+			end
+		end
 	end
 
 	if pfl.ShowTarget and pfl.TargetGraphic == "text" then
@@ -673,6 +700,12 @@ end
 local band = bit.band
 function addon:COMBAT_LOG_EVENT_UNFILTERED(_, _, eventtype, hideCaster, srcGUID, srcName, srcFlags, _, dstGUID, dstName, dstFlags, _, spellID, spellName, _, auraType)
 	if not spellID then return end
+	if self.db.global.ArenaOnly then
+		local _, instanceType = IsInInstance();
+		if not (instanceType == "arena") then
+			return
+		end
+	end
 	if SpellCastEvents[eventtype] and band(srcFlags, COMBATLOG_HOSTILE) == COMBATLOG_HOSTILE and SpellCasts[spellName] then
 		if pfl.TargetOnly and band(srcFlags) ~= COMBATLOG_TARGET then return end
 		if band(SPELLCASTS_FILTER,srcFlags) == 0 then return end
@@ -706,7 +739,7 @@ function addon:GetOptions()
 						type = "description",
 						name = "Author: |cffffd200Kollektiv|r\
 \
-Website: |cffffd200http://wow.curse.com/downloads/wow-addons/details/spell-alerter.aspx|r",
+|cffffd200Updated for Legion by Jax|r",
 						order = 100,
 					},
 				},
@@ -718,6 +751,14 @@ Website: |cffffd200http://wow.curse.com/downloads/wow-addons/details/spell-alert
 				get = function() return self.db.global.Enabled end,
 				set = function(info,value) self.db.global.Enabled = value; self:SetEnabledState(value); if value then self:Enable() else self:Disable() end end,
 				width = "half",
+			},
+			ArenaOnly = {
+				type = "toggle",
+				name = "Arena Only",
+				order = 61,
+				get = function() return self.db.global.ArenaOnly end,
+				set = function(info,value) self.db.global.ArenaOnly = value; end,
+				width = "full",
 			},
 			Lock = {
 				type = "toggle",
@@ -779,6 +820,11 @@ Website: |cffffd200http://wow.curse.com/downloads/wow-addons/details/spell-alert
 										type = "toggle",
 										name = L["Show caster"],
 										order = 250,
+									},
+									UnitIDCaster = {
+										type = "toggle",
+										name = "Show UnitID",
+										order = 270,
 									},
 									SpellNames = {
 										type = "toggle",
@@ -977,7 +1023,7 @@ Website: |cffffd200http://wow.curse.com/downloads/wow-addons/details/spell-alert
 					},
 					Add_Desc = {
 						type = "description",
-						name = L["Enter a spell name and select one. IMPORTANT: It is case sensitive"],
+						name = L["Enter a spell name and select one."],
 						order = 70,
 					},
 					Add_Editbox = {
@@ -1087,7 +1133,7 @@ Website: |cffffd200http://wow.curse.com/downloads/wow-addons/details/spell-alert
 					},
 					Add_Desc = {
 						type = "description",
-						name = L["Enter a spell name and select one. IMPORTANT: It is case sensitive"],
+						name = L["Enter a spell name and select one."],
 						order = 150,
 					},
 					Add_Editbox = {
