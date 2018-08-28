@@ -362,7 +362,7 @@ end
 
 function addon:OnInitialize()
 	self.frame = CreateFrame("Frame","SpellAlerterFrame",UIParent)
-	self.db = LibStub("AceDB-3.0"):New("SpellAlerterDB",Defaults,"Default")
+	self.db = LibStub("AceDB-3.0"):New("SpellAlerter2DB",Defaults,"Default")
 	gbl = self.db.global
 	self:ProfileChanged()
 
