@@ -1,8 +1,8 @@
-## Interface: 70200
-## Author: Kollektiv
+## Interface: 70300
+## Author: Kollektiv & others
 ## Notes: Tracks spells
-## Version: v7.1.5 
-## Title: Spell Alerter |cff99ff33(Jax Update)|r
+## Version: v7.3.0 
+## Title: Spell Alerter |cff99ff33(Inofficial Fan Update)|r
 ## OptionalDeps: Ace3, !ClassColors, LibSharedMedia-3.0, AceGUI-3.0-SharedMediaWidgets, AceGUI-3.0-Spell-EditBox
 ## SavedVariables: SpellAlerterDB
 ## X-Curse-Packaged-Version: v7.1.5
