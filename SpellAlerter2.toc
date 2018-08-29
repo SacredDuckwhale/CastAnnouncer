@@ -42,5 +42,5 @@ Libs\Spells\spell_lib_dhunter.lua
 
 Locales.lua
 FauxScrollFrameWidget.lua
-SpellAlerter.lua
+SpellAlerter2.lua
 Sounds.lua
