@@ -4,7 +4,7 @@
 ## Version: v8.0.1 
 ## Title: Spell Alerter |cff99ff33(Inofficial Fan Update)|r
 ## OptionalDeps: Ace3, !ClassColors, LibSharedMedia-3.0, AceGUI-3.0-SharedMediaWidgets, AceGUI-3.0-Spell-EditBox
-## SavedVariables: SpellAlerterDB
+## SavedVariables: SpellAlerter2DB
 ## X-Curse-Packaged-Version: v8.0.1
 ## X-Curse-Project-Name: SpellAlerter2
 ## X-Curse-Project-ID: spell-alerter2
