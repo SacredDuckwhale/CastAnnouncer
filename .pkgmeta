@@ -7,7 +7,7 @@ ignore:
  - README.MD
 
 
-license-output: LICENSE.TXT
+license-output: LICENSE.HTML
 
 manual-changelog:
     filename: CHANGES.TXT
