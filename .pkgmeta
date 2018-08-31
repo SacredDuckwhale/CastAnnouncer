@@ -28,9 +28,6 @@ externals:
     Libs/AceGUI-3.0:
         url: https://repos.wowace.com/wow/ace3/trunk/AceGUI-3.0
         tag: latest
-    Libs/AceGUI-3.0-Spell-EditBox:
-        url: https://repos.wowace.com/wow/ace3/trunk/AceGUI-3.0-Spell-EditBox
-        tag: latest
     Libs/AceLocale-3.0:
         url: https://repos.wowace.com/wow/ace3/trunk/AceLocale-3.0
         tag: latest
