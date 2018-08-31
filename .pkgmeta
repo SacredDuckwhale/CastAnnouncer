@@ -6,6 +6,9 @@ ignore:
  - CONTRIBUTORS.MD
  - README.MD
 
+
+license-output: LICENSE.TXT
+
 manual-changelog:
     filename: CHANGES.TXT
     markup-type: markdown
