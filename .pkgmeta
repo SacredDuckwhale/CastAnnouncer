@@ -3,7 +3,7 @@ package-as: SpellAlerter2
 enable-nolib-creation: no
 
 manual-changelog:
-    filename: CHANGES.MD
+    filename: CHANGES.TXT
     markup-type: markdown
 
 externals:
