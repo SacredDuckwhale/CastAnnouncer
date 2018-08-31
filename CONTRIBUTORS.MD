@@ -9,7 +9,7 @@ It's been difficult to track the various people involved in the project, but cre
 Kollektiv: https://wow.curseforge.com/members/kollektiv
 * Original creator of the addon
 * Last published version: v2.15 in 2011 ([Link](https://wow.curseforge.com/projects/spell-alerter/files/526927))
-* Versions available on [WowInterface](http://www.wowinterface.com/downloads/info8221-SpellAlerter.html) and [CurseForge](https://wow.curseforge.com/projects/spell-alerter) - both are abandoned
+* Outdated versions available on [WowInterface](http://www.wowinterface.com/downloads/info8221-SpellAlerter.html) and [CurseForge](https://wow.curseforge.com/projects/spell-alerter) - both are abandoned
 
 Jaxington AKA Jax: http://twitch.tv/jaxington
 * Updates for 7.0 (Legion)
