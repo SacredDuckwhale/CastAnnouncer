@@ -14,3 +14,6 @@ Kollektiv: https://wow.curseforge.com/members/kollektiv
 Jaxington AKA Jax: http://twitch.tv/jaxington
 * Updates for 7.0 (Legion)
 * Published file on ArenaJunkies forums ([Link](www.arenajunkies.com/topic/351355-spellalerter-legion-update/)), via dropbox (dead link)
+
+Duckwhale (AKA Cakechart): https://github.com/SacredDuckwhale/ and https://wow.curseforge.com/members/Cakechart
+* Updates for 8.0 (Battle for Azeroth)
