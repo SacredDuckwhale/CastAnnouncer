@@ -389,7 +389,7 @@ function addon:OnInitialize()
 		if LDBIcon then LDBIcon:Register("SpellAlerter2",self.Launcher,self.db.global.Minimap) end
 	end
 
-	print("Spell Alerter 2 successfully loaded . Type /sa or /spellalerter to change the settings",0,1,0) -- TODO: L?
+	DEFAULT_CHAT_FRAME:AddMessage("Spell Alerter 2 successfully loaded . Type /sa or /spellalerter to access the settings",0,1,0) -- TODO: L?
 	self:SetEnabledState(self.db.global.Enabled)
 end
 
