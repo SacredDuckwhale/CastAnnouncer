@@ -2,6 +2,10 @@ package-as: SpellAlerter2
 
 enable-nolib-creation: no
 
+ignore:
+ - CONTRIBUTORS.MD
+ - README.MD
+
 manual-changelog:
     filename: CHANGES.TXT
     markup-type: markdown
