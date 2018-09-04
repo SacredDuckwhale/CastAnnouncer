@@ -1,21 +1,20 @@
 
-**SpellAlerter2** is a fork of the original SpellAlerter addon, written by Kollektiv, which was updated by various people over many years and seemed to be lost in the depths of the Internet. This is an attempt to revive it and provide it with a (hopefully lasting) project site so that people may find it more easily in the future.
+**CastAnnouncer** is an updated fork of the original SpellAlerter addon, written by Kollektiv, which includes updates by volunteers that were seemingly lost in the depths of the Internet. This is an attempt to revive it and provide it with a (hopefully lasting) project site so that people may find it more easily in the future.
 
 ## Using your settings from the original SpellAlerter
 
-SpellAlerter2 doesn't use the same name as the original addon to avoid conflicts. This means it won't be able to simply read your old settings (if you still have them). You should be able to copy your old Saved Variables\SpellAlerter.lua file to bring them over, though. You can name it SpellAlerter2.lua, and rename the database inside to "SpellAlerter2DB" as well.
+CastAnnouncer doesn't use the same name as the original addon to avoid conflicts. This means it won't be able to simply read your old settings (if you still have them). You should be able to copy your old Saved Variables\SpellAlerter.lua file to bring them over, though. You can name it CastAnnouncer.lua, and rename the database inside to "CastAnnouncerDB" as well.
 
-It does register the same slash commands (for the time being): **/spellalerter** and **/sa**
-Therefore it's recommended to turn OFF the old addon if you still have it running - it probaby isn't working anyway.
+It registers these slash commands (for the time being): **/castannouncer** and **/ca**
 
 ## Acknowledgement
 
-This addon was NOT created by me and in no way do I wish to take credit for other people's work. [Here](https://github.com/SacredDuckwhale/SpellAlerter2/blob/master/CONTRIBUTORS.MD) is the (probably incomplete) list of known contributors - feel free to message me if someone is missing.
+The SpellAlerter addon was NOT created by me and in no way do I wish to take credit for other people's work. [Here](https://github.com/SacredDuckwhale/CastAnnouncer/blob/master/CONTRIBUTORS.MD) is the (probably incomplete) list of known contributors - feel free to message me if someone is missing.
 
 
 -----
 
-Original description (by Kollektiv) below:
+Original description (by Kollektiv) below: (TODO: Rewrite)
 
 -----
 
