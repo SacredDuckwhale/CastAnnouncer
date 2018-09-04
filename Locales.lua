@@ -1,6 +1,6 @@
 --[[
 	The contents of this file are auto-generated using the CurseForge localization application
-	Please go to http://wow.curseforge.com/projects/spell-alerter/localization/ to update translations.
+	Please go to http://wow.curseforge.com/projects/cast-announcer/localization/ to update translations.
 	Anyone with a wowace/curseforge account can edit them. 
 ]] 
 
@@ -58,7 +58,6 @@ L["Show spell names"] = true
 L["Show target"] = true
 L["Sliders"] = true
 L["Sound"] = true
-L["Spell Alerter"] = true
 L["Spell Casts"] = true
 L["Spell List"] = true
 L["Tan"] = true
@@ -132,7 +131,6 @@ L["Show spell names"] = "Zeige Zaubernamen"
 L["Show target"] = "Zeige Ziel"
 L["Sliders"] = "Schieber"
 L["Sound"] = "Sound"
-L["Spell Alerter"] = "Zauber Warner"
 -- L["Spell Casts"] = ""
 L["Spell List"] = "Zauberliste"
 L["Tan"] = "Hellbraun"
@@ -206,7 +204,6 @@ L["Show spell names"] = "Mostrar nombres de hechizo"
 L["Show target"] = "Mostrar objetivo"
 L["Sliders"] = "Deslizadores"
 L["Sound"] = "Sonido"
-L["Spell Alerter"] = "Alertador de hechizo"
 L["Spell Casts"] = "Canalización de hechizo"
 L["Spell List"] = "Listo da hechizo"
 L["Tan"] = "Bronceado"
@@ -354,7 +351,6 @@ L["Show spell names"] = "Afficher le nom des sorts"
 L["Show target"] = "Voir la cible"
 L["Sliders"] = "Curseur"
 L["Sound"] = "Son"
-L["Spell Alerter"] = "Alerte de sort"
 L["Spell Casts"] = "invoque de sort"
 L["Spell List"] = "Liste des sorts"
 L["Tan"] = "brun"
@@ -428,7 +424,6 @@ L["Show spell names"] = "주문의 이름을 보여줌"
 L["Show target"] = "주문의 대상을 보여줌"
 L["Sliders"] = "슬라이더 설정들"
 L["Sound"] = "효과음"
-L["Spell Alerter"] = "Spell Alerter"
 L["Spell Casts"] = "주문 시전"
 L["Spell List"] = "주문 목록"
 L["Tan"] = "황갈색"
@@ -502,7 +497,6 @@ L["Show spell names"] = "Показать название заклинания"
 L["Show target"] = "Показать цель"
 L["Sliders"] = "Бегунок"
 L["Sound"] = "Звук"
-L["Spell Alerter"] = "Извещение заклинаний"
 L["Spell Casts"] = "Применения заклинаний"
 L["Spell List"] = "Список заклинаний"
 L["Tan"] = "Бронзовый"
@@ -576,7 +570,6 @@ L["Show spell names"] = "显示法术名称"
 L["Show target"] = "显示目标"
 L["Sliders"] = "滑动设置"
 L["Sound"] = "音效"
-L["Spell Alerter"] = "Spell Alerter"
 L["Spell Casts"] = "法术施放"
 L["Spell List"] = "法术列表"
 L["Tan"] = "棕褐"
@@ -650,7 +643,6 @@ L["Show spell names"] = "顯示法術名稱"
 L["Show target"] = "顯示目標"
 L["Sliders"] = "滾輪"
 L["Sound"] = "音效"
-L["Spell Alerter"] = "法術警報"
 L["Spell Casts"] = "法術施放"
 L["Spell List"] = "法術清單"
 L["Tan"] = "棕褐色"

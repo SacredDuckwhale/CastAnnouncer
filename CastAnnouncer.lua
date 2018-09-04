@@ -727,7 +727,7 @@ end
 function addon:GetOptions()
 	return {
 		type = "group",
-		name = L["Spell Alerter"],
+		name = "CastAnnouncer"
 		order = 100,
 		args = {
 			About = {
