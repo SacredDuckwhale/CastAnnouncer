@@ -1,4 +1,4 @@
-package-as: SpellAlerter2
+package-as: CastAnnouncer
 
 enable-nolib-creation: no
 

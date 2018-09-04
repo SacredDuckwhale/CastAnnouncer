@@ -1,9 +1,9 @@
-local addon = LibStub("AceAddon-3.0"):NewAddon("SpellAlerter2","AceEvent-3.0","AceConsole-3.0")
-local	L, SM = LibStub("AceLocale-3.0"):GetLocale("SpellAlerter2", true), LibStub("LibSharedMedia-3.0")
+local addon = LibStub("AceAddon-3.0"):NewAddon("CastAnnouncer,"AceEvent-3.0","AceConsole-3.0")
+local	L, SM = LibStub("AceLocale-3.0"):GetLocale("CastAnnouncer", true), LibStub("LibSharedMedia-3.0")
 local LDB = LibStub("LibDataBroker-1.1",true)
 local LDBIcon = LibStub("LibDBIcon-1.0",true)
 
-_G.SpellAlerter2 = addon
+_G.CastAnnouncer = addon
 
 do
 	local function AddSound(soundName,soundFile) SM:Register("Sound",soundName,soundFile) end
@@ -27,7 +27,7 @@ end
 function SA_AddSound(soundName,soundFile)
 	assert(type(soundName) == "string","Bad argument #1. Expected a string")
 	assert(type(soundFile) == "string","Bad argument #2. Expected a string")
-	SM:Register("sound",soundName,"Interface\\Addons\\SpellAlerter2\\sounds\\"..soundFile) 
+	SM:Register("sound",soundName,"Interface\\Addons\\CastAnnouncer\\sounds\\"..soundFile) 
 end 
 
 local alert
@@ -93,7 +93,7 @@ local Defaults = {
 		Minimap = {},
 	},
 	profile = {
-		Positions = { SpellAlerter2FrameAnchor =  {"CENTER",nil,"CENTER",0,190} },
+		Positions = { CastAnnouncerFrameAnchor =  {"CENTER",nil,"CENTER",0,190} },
 		CategorySelect = "SpellCasts",
 		ShowIcon = true,
 		ShowCaster = true,
@@ -354,27 +354,27 @@ function addon:OpenConfig()
 		addon.options = addon:GetOptions()
 		addon.options.args.profile = LibStub("AceDBOptions-3.0"):GetOptionsTable(addon.db)
 		addon.options.args.profile.order = 500
-		LibStub("AceConfig-3.0"):RegisterOptionsTable("SpellAlerter2", addon.options)
+		LibStub("AceConfig-3.0"):RegisterOptionsTable("CastAnnouncer", addon.options)
 		addon.GetOptions = nil
 	end
-	LibStub("AceConfigDialog-3.0"):Open("SpellAlerter2")
+	LibStub("AceConfigDialog-3.0"):Open("CastAnnouncer")
 end
 
 function addon:OnInitialize()
-	self.frame = CreateFrame("Frame","SpellAlerter2Frame",UIParent)
-	self.db = LibStub("AceDB-3.0"):New("SpellAlerter2DB",Defaults,"Default")
+	self.frame = CreateFrame("Frame","CastAnnouncerFrame",UIParent)
+	self.db = LibStub("AceDB-3.0"):New("CastAnnouncerDB",Defaults,"Default")
 	gbl = self.db.global
 	self:ProfileChanged()
 
-	self:RegisterChatCommand("sa",self.OpenConfig)
-	self:RegisterChatCommand("spellalerter",self.OpenConfig)
+	self:RegisterChatCommand("ca",self.OpenConfig)
+	self:RegisterChatCommand("castannouncer",self.OpenConfig)
 
 	self.db.RegisterCallback(self, "OnProfileChanged", "ProfileChanged")
 	self.db.RegisterCallback(self, "OnProfileCopied", "ProfileChanged")
 	self.db.RegisterCallback(self, "OnProfileReset", "ProfileChanged")
 
 	if LDB then
-		self.Launcher = LDB:NewDataObject("SpellAlerter2", 
+		self.Launcher = LDB:NewDataObject("CastAnnouncer", 
 		{
 			type = "launcher",
 			icon = "Interface\\Icons\\Spell_Fire_Flare",
@@ -386,10 +386,10 @@ function addon:OnInitialize()
 				tooltip:AddLine(L["|cff99ff33Click|r to open the config"])
 			end,
 		})
-		if LDBIcon then LDBIcon:Register("SpellAlerter2",self.Launcher,self.db.global.Minimap) end
+		if LDBIcon then LDBIcon:Register("CastAnnouncer",self.Launcher,self.db.global.Minimap) end
 	end
 
-	DEFAULT_CHAT_FRAME:AddMessage("Spell Alerter 2 successfully loaded . Type /sa or /spellalerter to access the settings",0,1,0) -- TODO: L?
+	DEFAULT_CHAT_FRAME:AddMessage("CastAnnouncer successfully loaded . Type /ca or /castannouncer to access the settings",0,1,0) -- TODO: L?
 	self:SetEnabledState(self.db.global.Enabled)
 end
 
@@ -406,7 +406,7 @@ function addon:OnEnable()
 end
 
 function addon:OnDisable()
-	if LDBIcon then LDBIcon:Hide("SpellAlerter2") end
+	if LDBIcon then LDBIcon:Hide("CastAnnouncer") end
 	self.frame:Hide()
 end
 
@@ -441,7 +441,7 @@ function addon:GetAnchor()
 end
 
 function addon:CreateAlert()
-	alert = CreateFrame("Frame","SpellAlerter2FrameAlert",self.frame)
+	alert = CreateFrame("Frame","CastAnnouncerFrameAlert",self.frame)
 	alert.anchor = self:GetAnchor()
 	alert:SetWidth(1); alert:SetHeight(1)
 	alert:SetPoint("CENTER",alert.anchor,"CENTER")
@@ -452,7 +452,7 @@ function addon:CreateAlert()
 	alert.icon:SetTexCoord(0.07,0.93,0.07,0.93)
 	alert.icon:SetPoint("RIGHT",alert.text,"LEFT")
 	alert.arrow = alert:CreateTexture(nil,"ARTWORK")
-	alert.arrow:SetTexture("Interface\\Addons\\SpellAlerter2\\Arrow")
+	alert.arrow:SetTexture("Interface\\Addons\\CastAnnouncer\\Arrow")
 	alert.arrow:SetHeight(42)
 	alert.arrow:SetWidth(48)
 	alert:Hide()
@@ -481,7 +481,7 @@ function addon:ApplyLock()
 end
 
 function addon:ApplyMinimap()
-	if LDBIcon then LDBIcon[self.db.global.Minimap.hide and "Hide" or "Show"](LDBIcon, "SpellAlerter2") end
+	if LDBIcon then LDBIcon[self.db.global.Minimap.hide and "Hide" or "Show"](LDBIcon, "CastAnnouncer") end
 end
 
 local function FixPoints(self,dstName,same)
@@ -788,7 +788,7 @@ function addon:GetOptions()
 			},
 			Version = {
 				type = "description",
-				name = "|cff00ff00"..L["Version"].."|r: "..GetAddOnMetadata("SpellAlerter2","Version"),
+				name = "|cff00ff00"..L["Version"].."|r: "..GetAddOnMetadata("CastAnnouncer","Version"),
 				order = 80,
 			},
 			

@@ -10,7 +10,7 @@ local debug = false
 debug = true
 --@end-debug@]===] 
 
-local L = AL:NewLocale("SpellAlerter2", "enUS", true, debug)
+local L = AL:NewLocale("CastAnnouncer", "enUS", true, debug)
 if L then
 L["About"] = true
 L["Add"] = true
@@ -84,7 +84,7 @@ L["|cff99ff33Click|r to open the config"] = true
 if GetLocale() == "enUS" or GetLocale() == "enGB" then return end
 end
 
-local L = AL:NewLocale("SpellAlerter2", "deDE")
+local L = AL:NewLocale("CastAnnouncer", "deDE")
 if L then
 L["About"] = "Über"
 L["Add"] = "Hinzufügen"
@@ -158,7 +158,7 @@ L["|cff99ff33Click|r to open the config"] = "|cff99ff33Klicken|r zum öffnen der
 return
 end
 
-local L = AL:NewLocale("SpellAlerter2", "esES")
+local L = AL:NewLocale("CastAnnouncer", "esES")
 if L then
 L["About"] = "Acerca de"
 L["Add"] = "Añadir"
@@ -232,7 +232,7 @@ L["|cff99ff33Click|r to open the config"] = "|cff99ff33Click|r para abrir la con
 return
 end
 
-local L = AL:NewLocale("SpellAlerter2", "esMX")
+local L = AL:NewLocale("CastAnnouncer", "esMX")
 if L then
 -- L["About"] = ""
 -- L["Add"] = ""
@@ -306,7 +306,7 @@ if L then
 return
 end
 
-local L = AL:NewLocale("SpellAlerter2", "frFR")
+local L = AL:NewLocale("CastAnnouncer", "frFR")
 if L then
 L["About"] = "À propos de"
 L["Add"] = "Ajouter"
@@ -380,7 +380,7 @@ L["|cff99ff33Click|r to open the config"] = "|cff99ff33Clique|r pour ouvrir les 
 return
 end
 
-local L = AL:NewLocale("SpellAlerter2", "koKR")
+local L = AL:NewLocale("CastAnnouncer", "koKR")
 if L then
 L["About"] = "About"
 L["Add"] = "추가"
@@ -454,7 +454,7 @@ L["|cff99ff33Click|r to open the config"] = "|cff99ff33딸각|r 하면 설정창
 return
 end
 
-local L = AL:NewLocale("SpellAlerter2", "ruRU")
+local L = AL:NewLocale("CastAnnouncer", "ruRU")
 if L then
 L["About"] = "Об"
 L["Add"] = "Добавить"
@@ -528,7 +528,7 @@ L["|cff99ff33Click|r to open the config"] = "|cff99ff33Клик|r открыва
 return
 end
 
-local L = AL:NewLocale("SpellAlerter2", "zhCN")
+local L = AL:NewLocale("CastAnnouncer", "zhCN")
 if L then
 L["About"] = "关于"
 L["Add"] = "增加"
@@ -602,7 +602,7 @@ L["|cff99ff33Click|r to open the config"] = "|cff99ff33点击|r 打开配置"
 return
 end
 
-local L = AL:NewLocale("SpellAlerter2", "zhTW")
+local L = AL:NewLocale("CastAnnouncer", "zhTW")
 if L then
 L["About"] = "關於"
 L["Add"] = "新增"
