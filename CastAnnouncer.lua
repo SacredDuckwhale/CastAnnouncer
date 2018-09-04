@@ -1,4 +1,4 @@
-local addon = LibStub("AceAddon-3.0"):NewAddon("CastAnnouncer,"AceEvent-3.0","AceConsole-3.0")
+local addon = LibStub("AceAddon-3.0"):NewAddon("CastAnnouncer", "AceEvent-3.0","AceConsole-3.0")
 local	L, SM = LibStub("AceLocale-3.0"):GetLocale("CastAnnouncer", true), LibStub("LibSharedMedia-3.0")
 local LDB = LibStub("LibDataBroker-1.1",true)
 local LDBIcon = LibStub("LibDBIcon-1.0",true)
