@@ -727,7 +727,7 @@ end
 function addon:GetOptions()
 	return {
 		type = "group",
-		name = "CastAnnouncer"
+		name = "CastAnnouncer",
 		order = 100,
 		args = {
 			About = {
