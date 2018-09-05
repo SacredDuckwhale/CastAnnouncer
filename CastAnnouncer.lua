@@ -53,6 +53,7 @@ local ipairs = ipairs
 local unpack = unpack
 local select = select
 local match = string.match
+local format = format
 local wipe = table.wipe
 local UNKNOWN = "UNKNOWN"
 
