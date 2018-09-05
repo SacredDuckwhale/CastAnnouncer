@@ -389,7 +389,7 @@ function addon:OnInitialize()
 		if LDBIcon then LDBIcon:Register("CastAnnouncer",self.Launcher,self.db.global.Minimap) end
 	end
 
-	DEFAULT_CHAT_FRAME:AddMessage("CastAnnouncer successfully loaded . Type /ca or /castannouncer to access the settings",0,1,0) -- TODO: L?
+	DEFAULT_CHAT_FRAME:AddMessage(format(L["%s successfully loaded. Type %s or %s to access the settings."], "CastAnnouncer", "/ca", "/castannouncer"),0,1,0)
 	self:SetEnabledState(self.db.global.Enabled)
 end
 
