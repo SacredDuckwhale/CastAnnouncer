@@ -278,7 +278,6 @@ if L then
 -- L["Show target"] = ""
 -- L["Sliders"] = ""
 -- L["Sound"] = ""
--- L["Spell Alerter"] = ""
 -- L["Spell Casts"] = ""
 -- L["Spell List"] = ""
 -- L["Tan"] = ""

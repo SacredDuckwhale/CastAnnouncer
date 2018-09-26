@@ -4,7 +4,7 @@ local LDB = LibStub("LibDataBroker-1.1",true)
 local LDBIcon = LibStub("LibDBIcon-1.0",true)
 
 _G.CastAnnouncer = addon
-
+local CA = addon
 
 local isDebugVersion = false
 --@debug@
@@ -14,14 +14,14 @@ isDebugVersion = true
 local format = format
 local date = date
 
--- Debug messages - TODO: Allow user to set this? Meh.
-local function Debug(msg, source)
-	if isDebugVersion then
-		
-		source = source or ""
-		print(format(date("%H:%M:%S") .. " " .. "|c000072CA" .. "%s: " .. "|c00E6CC80%s", "CA" .. (source ~= "" and "_" .. source or ""), msg)) -- Display source/module if any was given
-		
-	end
+-- Print debug messages with some additional info
+function addon:Debug(msg, source)
+
+	if not self.db.global.debugMode then return end
+	
+	source = source or ""
+	print(format(date("%H:%M:%S") .. " " .. "|c000072CA" .. "%s: " .. "|c00E6CC80%s", "CA" .. (source ~= "" and "_" .. source or ""), msg)) -- Display source/module if any was given
+
 end
 
 do
@@ -722,22 +722,29 @@ local CombatLogGetCurrentEventInfo = CombatLogGetCurrentEventInfo
 function addon:COMBAT_LOG_EVENT_UNFILTERED()
 	-- Extract event payload (it's no longer being passed by the event iself as of 8.0.1)
 	local timestamp, eventType, hideCaster, srcGuid, srcName, srcFlags, srcRaidFlags, dstGuid, dstName, dstFlags, dstRaidFlags, spellID, spellName, spellSchool, auraType = CombatLogGetCurrentEventInfo()
+CA:Debug("Detected CombatLogEvent with srcName = " .. tostring(srcName) .. ", dstName = " .. tostring(dstName) .. ", spellName = " .. tostring(spellName) .. " (" .. tostring(spellID) .. "), auraType = " .. tostring(auraType))	
 	if not spellID then return end
 	if self.db.global.ArenaOnly then
 		local _, instanceType = IsInInstance();
 		if not (instanceType == "arena") then
 			return
 		end
+CA:Debug("Detected CombatLogEvent in ARENA instance")
 	end
 	if SpellCastEvents[eventtype] and band(srcFlags, COMBATLOG_HOSTILE) == COMBATLOG_HOSTILE and SpellCasts[spellName] then
+CA:Debug("Detected hostile spell cast event with auraType = " .. tostring(auraType))
+CA:Debug("Detected CombatLogEvent with srcName = " .. tostring(srcName) .. ", dstName = " .. tostring(dstName) .. ", spellName = " .. tostring(spellName) .. " (" .. tostring(spellID) .. "), auraType = " .. tostring(auraType))	
 		if pfl.TargetOnly and band(srcFlags) ~= COMBATLOG_TARGET then return end
 		if band(SPELLCASTS_FILTER,srcFlags) == 0 then return end
 		self:FormatInfo(StrippedName[srcName],srcGUID,spellName,Icons[spellID],SpellCasts[spellName].Sound,SPELLCASTS,colors[SpellCasts[spellName].Color])
 	elseif eventtype == "SPELL_AURA_APPLIED" then
+CA:Debug("Detected SPELL_AURA_APPLIED with auraType = " .. tostring(auraType))
 		if pfl.TargetOnly and band(dstFlags) ~= COMBATLOG_TARGET then return end
 		if auraType == "BUFF" and band(dstFlags,COMBATLOG_HOSTILE) == COMBATLOG_HOSTILE and EnemyBuffs[spellName] and band(ENEMYBUFFS_FILTER,dstFlags) > 0 then
+CA:Debug("Detected buff application with auraType = " .. tostring(auraType))			
 			self:FormatInfo(StrippedName[dstName],dstGUID,spellName,Icons[spellID],EnemyBuffs[spellName].Sound,ENEMYBUFFS,colors[EnemyBuffs[spellName].Color])
 		elseif auraType == "DEBUFF" and band(dstFlags,COMBATLOG_FRIENDLY) == COMBATLOG_FRIENDLY and FriendlyDebuffs[spellName] and band(FRIENDLYDEBUFFS_FILTER) > 0 then
+CA:Debug("Detected debuff application with auraType = " .. tostring(auraType))
 			self:FormatInfo(StrippedName[dstName],dstGUID,spellName,Icons[spellID],FriendlyDebuffs[spellName].Sound,FRIENDLYDEBUFFS,colors[FriendlyDebuffs[spellName].Color])
 		end
 	end
