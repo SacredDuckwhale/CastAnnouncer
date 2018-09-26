@@ -20,7 +20,7 @@ function addon:Debug(msg, source)
 	if not self.db.global.debugMode then return end
 	
 	source = source or ""
-	print(format(date("%H:%M:%S") .. " " .. "|c000072CA" .. "%s: " .. "|c00E6CC80%s", "CA" .. (source ~= "" and "_" .. source or ""), msg)) -- Display source/module if any was given
+	print(format(date("%H:%M:%S") .. " " .. "|c000072CA" .. "%s: " .. "|c00E6CC80%s", "CastAnnouncer" .. (source ~= "" and "_" .. source or ""), msg)) -- Display source/module if any was given
 
 end
 
