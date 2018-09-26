@@ -782,6 +782,14 @@ function addon:GetOptions()
 				set = function(info,value) self.db.global.Enabled = value; self:SetEnabledState(value); if value then self:Enable() else self:Disable() end end,
 				width = "half",
 			},
+			Debug = {
+				type = "toggle",
+				name = L["Debug Mode"],
+				order = 62,
+				get = function() return self.db.global.debugMode end,
+				set = function(info, value) self.db.global.debugMode = value end,
+				width = "full",
+			},
 			ArenaOnly = {
 				type = "toggle",
 				name = "Arena Only",

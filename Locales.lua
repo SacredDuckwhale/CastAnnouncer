@@ -12,6 +12,7 @@ debug = true
 
 local L = AL:NewLocale("CastAnnouncer", "enUS", true, debug)
 if L then
+L["Debug Mode"] = true
 L["%s successfully loaded. Type %s or %s to access the settings."] = true
 L["About"] = true
 L["Add"] = true
