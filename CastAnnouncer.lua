@@ -730,13 +730,13 @@ CA:Debug("Detected " .. tostring(eventType) .. " with srcName = " .. tostring(sr
 		end
 CA:Debug("Detected CombatLogEvent in ARENA instance")
 	end
-	if SpellCastEvents[eventtype] and band(srcFlags, COMBATLOG_HOSTILE) == COMBATLOG_HOSTILE and SpellCasts[spellName] then
+	if SpellCastEvents[eventType] and band(srcFlags, COMBATLOG_HOSTILE) == COMBATLOG_HOSTILE and SpellCasts[spellName] then
 CA:Debug("Detected hostile spell cast event with auraType = " .. tostring(auraType))
 CA:Debug("Detected CombatLogEvent with srcName = " .. tostring(srcName) .. ", dstName = " .. tostring(dstName) .. ", spellName = " .. tostring(spellName) .. " (" .. tostring(spellID) .. "), auraType = " .. tostring(auraType))	
 		if pfl.TargetOnly and band(srcFlags) ~= COMBATLOG_TARGET then return end
 		if band(SPELLCASTS_FILTER,srcFlags) == 0 then return end
 		self:FormatInfo(StrippedName[srcName],srcGUID,spellName,Icons[spellID],SpellCasts[spellName].Sound,SPELLCASTS,colors[SpellCasts[spellName].Color])
-	elseif eventtype == "SPELL_AURA_APPLIED" then
+	elseif eventType == "SPELL_AURA_APPLIED" then
 CA:Debug("Detected SPELL_AURA_APPLIED with auraType = " .. tostring(auraType))
 		if pfl.TargetOnly and band(dstFlags) ~= COMBATLOG_TARGET then return end
 		if auraType == "BUFF" and band(dstFlags,COMBATLOG_HOSTILE) == COMBATLOG_HOSTILE and EnemyBuffs[spellName] and band(ENEMYBUFFS_FILTER,dstFlags) > 0 then
