@@ -5,6 +5,25 @@ local LDBIcon = LibStub("LibDBIcon-1.0",true)
 
 _G.CastAnnouncer = addon
 
+
+local isDebugVersion = false
+--@debug@
+isDebugVersion = true
+--@end-debug@
+
+local format = format
+local date = date
+
+-- Debug messages - TODO: Allow user to set this? Meh.
+local function Debug(msg, source)
+	if isDebugVersion then
+		
+		source = source or ""
+		print(format(date("%H:%M:%S") .. " " .. "|c000072CA" .. "%s: " .. "|c00E6CC80%s", "CA" .. (source ~= "" and "_" .. source or ""), msg)) -- Display source/module if any was given
+		
+	end
+end
+
 do
 	local function AddSound(soundName,soundFile) SM:Register("Sound",soundName,soundFile) end
 	AddSound("Bell Toll Alliance", "Sound\\Doodad\\BellTollAlliance.wav") 
