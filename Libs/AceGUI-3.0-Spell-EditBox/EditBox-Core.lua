@@ -1,5 +1,15 @@
 -- This is basically the main portion of the predictor, the other files handle 
 local addonName, SPELLDB = ...
+
+-- Upvalues
+local pairs = pairs
+local tostring = tostring
+local string_match = string.match
+local string_lower = string.lower
+local string_format = string.format
+local string_len = string.len
+local table_insert = table.insert
+
 local AceGUI = LibStub("AceGUI-3.0")
 do
 	local Type = "Predictor_Base"
@@ -79,7 +89,8 @@ do
 		for _, button in pairs(self.buttons) do button:Hide() end
 		for k in pairs(alreadyAdded) do alreadyAdded[k] = nil end
 		
-		local query = string.lower(self.obj.editBox:GetText())
+		local query = string_lower(self.obj.editBox:GetText())
+
 		for _,S in pairs(SPELLDB) do
 			for _,v in pairs(S) do
 				for _,sp in pairs(v) do
@@ -185,7 +196,7 @@ do
 		if( type == "spell" ) then
 			local name, rank = GetSpellName(id, info)
 			if( self.useRanks and rank and rank ~= "" ) then
-				name = string.format("%s (%s)", name, rank)
+				name = string_format("%s (%s)", name, rank)
 			end
 			
 			self:SetText(name)
@@ -300,10 +311,10 @@ do
 	local function Spell_OnClick(self)
 		local name, rank = GetSpellInfo(self.spellID)
 		if( self.useRanks and rank and rank ~= "" ) then
-			name = string.format("%s (%s)", name, rank)
+			name = string_format("%s (%s)", name, rank)
 		end
 		
-		SetText(self.parent.obj, name, string.len(name))
+		SetText(self.parent.obj, name, string_len(name))
 		
 		self.parent.selectedButton = nil
 		self.parent.obj:Fire("OnEnterPressed", name)
@@ -381,7 +392,7 @@ do
 			button:SetHighlightFontObject(GameFontHighlight)
 			button:SetNormalFontObject(GameFontNormal)
 			
-			table.insert(predictFrame.buttons, button)
+			table_insert(predictFrame.buttons, button)
 		end	
 		
 		-- Set the main info things for this thingy
