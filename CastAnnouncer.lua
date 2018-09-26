@@ -221,43 +221,43 @@ function addon:AddDefaultSpells()
 	
 	if not pfl.SpellCasts then
 		pfl.SpellCasts =  {
-				[199786] = {
+				[199786] = { -- Glacial Spike
 					Color = "WHITE",
 				},
-				[7328] = {
+				[7328] = { -- Redemption
 					Color = "GREEN",
 				},
-				[118] = {
+				[118] = { -- Polymorph
 					Color = "TURQUOISE",
 				},
-				[2006] = {
+				[2006] = { -- Resurrection
 					Color = "GREEN",
 				},
-				[50769] = {
+				[50769] = { -- Revive
 					Color = "GREEN",
 				},
-				[5782] = {
+				[5782] = { -- Fear
 					Color = "VIOLET",
 				},
-				[51514] = {
+				[51514] = { -- Hex
 					Color = "AQUA",
 				},
-				[2008] = {
+				[2008] = { -- Ancestral Spirit
 					Color = "GREEN",
 				},
-				[605] = {
+				[605] = { -- Mind Control
 					Color = "TURQUOISE",
 				},
-				[119381] = {
+				[119381] = { -- Leg Sweep
 					Color = "TAN",
 				},
-				[116858] = {
+				[116858] = { -- Chaos Bolt
 					Color = "VIOLET",
 				},
-				[339] = {
+				[339] = { -- Entangling Roots
 					Color = "ORANGE",
 				},
-				[209753] = {
+				[209753] = { -- Cyclone
 					Color = "ORANGE",
 				},
 		}
@@ -265,55 +265,55 @@ function addon:AddDefaultSpells()
 	end
 	if not pfl.EnemyBuffs then
 		pfl.EnemyBuffs = {
-				[642] = {
+				[642] = { -- Divine Shield
 					Color = "PINK",
 				},
-				[10060] = {
+				[10060] = { -- Power Infusion
 					Color = "WHITE",
 				},
-				[198111] = {
+				[198111] = { -- Temporal Shield
 					Color = "AQUA",
 				},
-				[48792] = {
+				[48792] = { -- Icebound Fortitude
 					Color = "RED",
 				},
-				[47585] = {
+				[47585] = { -- Dispersion
 					Color = "WHITE",
 				},
-				[198144] = {
+				[198144] = { -- Ice Form
 					Color = "AQUA",
 				},
-				[6940] = {
+				[6940] = { -- Blessing of Sacrifice
 					Color = "PINK",
 				},
-				[61336] = {
+				[61336] = { -- Survival Instincts
 					Color = "ORANGE",
 				},
-				[22812] = {
+				[22812] = { -- Barkskin
 					Color = "ORANGE",
 				},
-				[216890] = {
+				[216890] = { -- Spell Reflection
 					Color = "TAN",
 				},
-				[1022] = {
+				[1022] = { -- Blessing of Protection
 					Color = "PINK",
 				},
-				[12472] = {
+				[12472] = { -- Icy Veins
 					Color = "AQUA",
 				},
-				[1044] = {
+				[1044] = { -- Blessing of Freedom
 					Color = "PINK",
 				},
-				[102342] = {
+				[102342] = { -- Ironbark
 					Color = "ORANGE",
 				},
-				[118038] = {
+				[118038] = { -- Die By the Sword
 					Color = "TAN",
 				},
-				[48707] = {
+				[48707] = { -- Anti-Magic Shell
 					Color = "RED",
 				},
-				[104773] = {
+				[104773] = { -- Unending Resolve
 					Color = "VIOLET",
 				},
 		}
@@ -321,37 +321,37 @@ function addon:AddDefaultSpells()
 	end
 	if not pfl.FriendlyDebuffs then
 		pfl.FriendlyDebuffs = {
-				[47476] = {
+				[47476] = { -- Strangulate
 					Color = "RED",
 				},
-				[5246] = {
+				[5246] = { -- Intimidating Shout
 					Color = "TAN",
 				},
-				[5484] = {
+				[5484] = { -- Howl of Terror
 					Color = "VIOLET",
 				},
-				[107570] = {
+				[107570] = { -- Storm Bolt
 					Color = "TAN",
 				},
-				[8122] = {
+				[8122] = { -- Psychic Scream
 					Color = "WHITE",
 				},
-				[853] = {
+				[853] = { -- Hammer of Justice
 					Color = "PINK",
 				},
-				[211522] = {
+				[211522] = { -- Psyfiend
 					Color = "WHITE",
 				},
-				[221562] = {
+				[221562] = { -- Asphyxiate
 					Color = "RED",
 				},
-				[15487] = {
+				[15487] = { -- Silence
 					Color = "WHITE",
 				},
-				[31661] = {
+				[31661] = { -- Dragon's Breath
 					Color = "AQUA",
 				},
-				[77606] = {
+				[77606] = { -- Dark Simulacrum
 					Color = "RED",
 				},
 		}
