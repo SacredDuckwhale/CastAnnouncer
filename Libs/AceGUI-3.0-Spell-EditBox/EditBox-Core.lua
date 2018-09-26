@@ -2,6 +2,8 @@
 local addonName, SPELLDB = ...
 
 -- Upvalues
+local _G = _G
+local CastAnnouncer -- Used to output debug messages for CA only (I'm aware it's very specific, but this "library" version is modified anyway and won't be used anywhere else)
 local pairs = pairs
 local tostring = tostring
 local string_match = string.match
@@ -85,6 +87,9 @@ do
 			end
 	end	
 	local function Predictor_Query(self)
+		
+		if not CastAnnouncer then CastAnnouncer = _G.CastAnnouncer end
+		
 		activeButtons = 0
 		for _, button in pairs(self.buttons) do button:Hide() end
 		for k in pairs(alreadyAdded) do alreadyAdded[k] = nil end
@@ -97,7 +102,11 @@ do
 						for _,SPELLID in pairs(sp) do
 							if( activeButtons >= PREDICTOR_ROWS ) then break end
 							local spellName, spellRank, spellIcon = GetSpellInfo(SPELLID)
-							searchSP(self, SPELLID, string.lower(spellName), query)
+							if not spellName then
+								CastAnnouncer:Debug("Skipping spell with spellID = " .. tostring(SPELLID) .. " (Outdated DB entry?)") -- TODO: Display as debug message only? OR have a separate setting that can be enabled to help users bug report without having to see all the debug messages, but also disabled if they don't want to see them (or have already reported it) -> similar to SI
+							else
+								searchSP(self, SPELLID, string_lower(spellName), query)
+							end
 						end
 				end
 			end
