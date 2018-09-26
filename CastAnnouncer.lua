@@ -617,8 +617,6 @@ function addon:FormatInfo(srcName,srcGUID,spellName,icon,sound,cat,color,forcedD
 		"arena1",
 		"arena2",
 		"arena3",
-		"arena4",
-		"arena5",
 	}
 	local srcUnit,dstUnit,dstExists = self:FindTargetInfo(srcGUID)
 	local valid = cat == SPELLCASTS and not Ignores[spellName] and dstExists

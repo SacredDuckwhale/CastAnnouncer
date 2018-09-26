@@ -1,2 +1,3 @@
 * Add support for entering IDs instead of localized spell names - while the GetSpellInfo API will return the translated name, having no IDs in the settings means the spell would have to be added with its localized name for every locale the player plans on using
 * Add proper class colours, and use them as constants CLASS_COLORS.DEATHKNIGHT
+* Update default spells etc. for BFA? Need to compile a list first, especially with all the PVP talents... which would be useful for Wisent procs as well
