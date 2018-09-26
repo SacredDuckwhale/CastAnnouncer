@@ -55,8 +55,8 @@ do
 	local function Control_OnLeave(this)
 		this.obj:Fire("OnLeave")
 	end
-	local int function searchSP(self, spellID, name, query)
-			if( not alreadyAdded[name] and string.match(name, query) and ( not self.obj.spellFilter or self.obj.spellFilter(self.obj, spellID) ) ) then
+	local function searchSP(self, spellID, name, query)
+			if( not alreadyAdded[name] and string_match(name, query) and ( not self.obj.spellFilter or self.obj.spellFilter(self.obj, spellID) ) ) then
 				activeButtons = activeButtons + 1
 				local button = self.buttons[activeButtons]
 				local spellName, spellRank, spellIcon = GetSpellInfo(spellID)
