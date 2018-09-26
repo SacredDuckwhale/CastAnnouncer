@@ -699,7 +699,10 @@ function addon:UpdateFilters()
 end
 
 local band = bit.band
-function addon:COMBAT_LOG_EVENT_UNFILTERED(_, _, eventtype, hideCaster, srcGUID, srcName, srcFlags, _, dstGUID, dstName, dstFlags, _, spellID, spellName, _, auraType)
+local CombatLogGetCurrentEventInfo = CombatLogGetCurrentEventInfo
+function addon:COMBAT_LOG_EVENT_UNFILTERED()
+	-- Extract event payload (it's no longer being passed by the event iself as of 8.0.1)
+	local timestamp, eventType, hideCaster, srcGuid, srcName, srcFlags, srcRaidFlags, dstGuid, dstName, dstFlags, dstRaidFlags, spellID, spellName, spellSchool, auraType = CombatLogGetCurrentEventInfo()
 	if not spellID then return end
 	if self.db.global.ArenaOnly then
 		local _, instanceType = IsInInstance();
