@@ -721,7 +721,7 @@ function addon:COMBAT_LOG_EVENT_UNFILTERED()
 	
 	-- Extract event payload (it's no longer being passed by the event iself as of 8.0.1)
 	local timestamp, eventType, hideCaster, srcGuid, srcName, srcFlags, srcRaidFlags, dstGuid, dstName, dstFlags, dstRaidFlags, spellID, spellName, spellSchool, auraType = CombatLogGetCurrentEventInfo()
-CA:Debug("Detected CombatLogEvent with srcName = " .. tostring(srcName) .. ", dstName = " .. tostring(dstName) .. ", spellName = " .. tostring(spellName) .. " (" .. tostring(spellID) .. "), auraType = " .. tostring(auraType))	
+CA:Debug("Detected " .. tostring(eventType) .. " with srcName = " .. tostring(srcName) .. ", dstName = " .. tostring(dstName) .. ", spellName = " .. tostring(spellName) .. " (" .. tostring(spellID) .. "), auraType = " .. tostring(auraType))	
 	if not spellID then return end
 	if self.db.global.ArenaOnly then
 		local _, instanceType = IsInInstance();
