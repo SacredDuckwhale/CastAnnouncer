@@ -54,7 +54,7 @@ do
 		self.type = widgetType
 
 		local count = AceGUI:GetNextWidgetNum(widgetType)
-		local frame = CreateFrame("Button","SA_FauxScrollFrameButton"..count,UIParent)
+		local frame = CreateFrame("Button","SA_FauxScrollFrameButton"..count,UIParent, BackdropTemplateMixin and "BackdropTemplate")
 		frame:SetWidth(130)
 		frame:SetHeight(buttonHeight)
 		frame:SetHighlightTexture("Interface\\QuestFrame\\UI-QuestTitleHighlight","ADD")
@@ -196,13 +196,18 @@ do
 
 		local count = AceGUI:GetNextWidgetNum(widgetType)
 		local frame = CreateFrame("ScrollFrame","SA_FauxScrollFrame"..count,UIParent,"FauxScrollFrameTemplate")
+		local scrollbar = _G[frame:GetName().."ScrollBar"]
+
+		if BackdropTemplateMixin  then -- No idea why it isn't part of the FauxScrollFrameTemplate, but I don't care to find out
+				Mixin(frame, BackdropTemplateMixin)
+				Mixin(scrollbar, BackdropTemplateMixin)
+		end
 		frame:SetHeight(200)
 		frame:SetScript("OnVerticalScroll",OnVerticalScroll)
 		frame:SetBackdrop(FrameBackdrop)
 		frame:SetBackdropColor(0.15,0.15,0.15,0.5)
 		frame:SetBackdropBorderColor(0.4,0.4,0.4)
 
-		local scrollbar = _G[frame:GetName().."ScrollBar"]
 		scrollbar:ClearAllPoints()
 		scrollbar:SetPoint("TOPRIGHT",frame,"TOPRIGHT",-5,-35)
 		scrollbar:SetPoint("BOTTOMRIGHT",frame,"BOTTOMRIGHT",-5,35)
