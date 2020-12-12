@@ -1,11 +1,11 @@
-## Interface: 80000
+## Interface: 90001
 ## Author: Kollektiv & others
 ## Notes: Tracks and displays (targeted) spell casts anywhere
 ## Title: CastAnnouncer
-## Version: v8.0.1 (@project-version@)
+## Version: v9.0.1 (@project-version@)
 ## OptionalDeps: Ace3, !ClassColors, LibSharedMedia-3.0, AceGUI-3.0-SharedMediaWidgets, AceGUI-3.0-Spell-EditBox
 ## SavedVariables: CastAnnouncerDB
-## X-Curse-Packaged-Version: v8.0.1 (@project-version@)
+## X-Curse-Packaged-Version: v9.0.1 (@project-version@)
 ## X-Curse-Project-Name: CastAnnouncer
 ## X-Curse-Project-ID: cast-announcer
 ## X-Curse-Repository-ID: wow/cast-announcer/mainline
