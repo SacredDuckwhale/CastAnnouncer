@@ -10,7 +10,7 @@ ignore:
 license-output: LICENSE.HTML
 
 manual-changelog:
-    filename: CHANGES.TXT
+    filename: CHANGES.MD
     markup-type: markdown
 
 externals:

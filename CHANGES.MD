@@ -1,3 +1,12 @@
+**r3:**
+
+> Fixed script errors caused by Shadowlands API changes
+
+Known Issues:
+> The predefined spell lists isn't updated and likely won't be unless someone requests specific changes - spells can be entered normally and will be detected regardless
+
+-----
+
 **r2:**
 
 > Added debug mode toggle to the configuration GUI
